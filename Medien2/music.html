@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Hier wird Musik gespielt! :)
+    <br />
+    <audio id="audioDatei" controls>
+        <source src="http://localhost:3000/playMusic" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <br />
+    <button type="button" onclick="giveDuration()">Duration</button>
+    <br />
+    <button type="button" onclick="giveBufferedRanges()">BufferedRanges</button>
+    <script>
+        function giveDuration() {
+            console.log("bin da");
+            var audio = document.getElementById("audioDatei");
+            //alert("Start: " + audio.buffered.start(0) + " End: " + audio.buffered.end(0));
+            alert(audio.duration);
+        }
+
+        function giveBufferedRanges() {
+            var audio = document.getElementById("audioDatei");
+            alert("Start: " + audio.buffered.start(0) + " End: " + audio.buffered.end(0));
+        }
+    </script>
+</body>
+</html>
