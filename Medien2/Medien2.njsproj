@@ -29,12 +29,16 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="public\videoEditor.js" />
     <Compile Include="server.js" />
     <Content Include="package.json" />
     <Content Include="index.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="music.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="pdf.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="README.md" />

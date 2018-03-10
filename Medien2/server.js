@@ -17,6 +17,24 @@ app.get('/music', function (req, res) {
     res.sendFile(path.join(__dirname + '/music.html'))
 })
 
+app.get('/pdf', function (req, res) {
+    res.sendFile(path.join(__dirname + '/pdf.html'))
+})
+
+app.get('/image/:name', function (req, res) {
+    const path = 'assets/' + req.params.name
+    const file = fs.createReadStream(path)
+    res.writeHead(200, { 'Content-type': 'image/png' })
+    file.pipe(res)
+})
+
+app.get('/document', function (req, res) {
+    const path = 'assets/document.pdf'
+    const file = fs.createReadStream(path)
+    res.writeHead(200, { 'Content-type': 'application/pdf' })
+    file.pipe(res)
+})
+
 app.get('/playVideo', function(req, res) {
   const path = 'assets/videoSample.mp4'
   const stat = fs.statSync(path)

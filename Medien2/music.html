@@ -6,16 +6,20 @@
     <title></title>
 </head>
 <body>
-    Hier wird Musik gespielt! :)
-    <br />
-    <audio id="audioDatei" controls>
-        <source src="http://localhost:3000/playMusic" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <br />
-    <button type="button" onclick="giveDuration()">Duration</button>
-    <br />
-    <button type="button" onclick="giveBufferedRanges()">BufferedRanges</button>
+    Hier wird Musik gespielt!
+    <section>
+        <img style="width:600px" src="./image/fargo.jpg" alt="fargo image"/>
+        <br />
+        <audio style="width:600px" id="audioDatei" controls>
+            <source src="http://localhost:3000/playMusic" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+    <!--Buffering getestet-->
+    <!--<section>
+        <button type="button" onclick="giveDuration()">Duration</button>
+        <button type="button" onclick="giveBufferedRanges()">BufferedRanges</button>
+    </section>
     <script>
         function giveDuration() {
             console.log("bin da");
@@ -28,6 +32,6 @@
             var audio = document.getElementById("audioDatei");
             alert("Start: " + audio.buffered.start(0) + " End: " + audio.buffered.end(0));
         }
-    </script>
+    </script>-->
 </body>
 </html>

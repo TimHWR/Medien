@@ -6,23 +6,47 @@
       <video id="videoPlayer" controls>
           <source src="http://localhost:3000/playVideo" type="video/mp4">
       </video>
+      <section>
+          <input style="position:relative; left:0px" type="button" value="BIG" onclick="makeBig()" />
+          <input style="position:relative; left:10px" type="button" value="SMALL" onclick="makeSmall()" />
+      </section>
+
       <!-- <button id="toggleButton">Start/Stop</button> -->
       <script src="index.js"></script>
-      <button type="button" onclick="giveDuration()">Duration</button>
-      <br />
-      <button type="button" onclick="giveBufferedRanges()">BufferedRanges</button>
-      <script>
-          function giveDuration() {
-              console.log("bin da");
-              var video = document.getElementById("videoPlayer");
-              //alert("Start: " + audio.buffered.start(0) + " End: " + audio.buffered.end(0));
-              alert(video.duration);
-          }
 
-          function giveBufferedRanges() {
-              var video = document.getElementById("videoPlayer");
-              alert("Start: " + video.buffered.start(0) + " End: " + video.buffered.end(0));
+      <script>
+          //nicht sicher, ob dieser Weg die Größe des Videos zu verändern sinnvoll ist. Möglicherweise muss Größe bereits vom Server angepasst werden (ffmpeg-Modul)
+          var myVideo = document.getElementById("videoPlayer");
+          var originalWidth;
+          function getOriginalWidth() {
+              originalWidth = myVideo.videoWidth;
+          }
+          myVideo.addEventListener("loadedmetadata", getOriginalWidth);
+          function makeBig() {
+              myVideo.width = originalWidth;
+          }
+          function makeSmall() {
+              myVideo.width = 560;
           }
       </script>
+
+      <!--Buffering getestet
+    <button type="button" onclick="giveDuration()">Duration</button>
+    <br />
+    <button type="button" onclick="giveBufferedRanges()">BufferedRanges</button>
+    <script>
+        function giveDuration() {
+            console.log("bin da");
+            var video = document.getElementById("videoPlayer");
+            //alert("Start: " + audio.buffered.start(0) + " End: " + audio.buffered.end(0));
+            alert(video.duration);
+        }
+
+        function giveBufferedRanges() {
+            var video = document.getElementById("videoPlayer");
+            alert("Start: " + video.buffered.start(0) + " End: " + video.buffered.end(0));
+        }
+    </script>-->
+
   </body>
 </html>
