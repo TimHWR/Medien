@@ -54,7 +54,7 @@ app.get('/playVideo', function(req, res) {
 })
 
 app.get('/playMusic', function (req, res) {
-    const path = 'assets/musicSampleLong.mp3'
+    const path = 'assets/musicSample.mp3'
     const stat = fs.statSync(path)
     const fileSize = stat.size
     const range = req.headers.range
